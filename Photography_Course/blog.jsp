@@ -92,7 +92,7 @@
               <p style="width: 90%;padding-left: 20%; padding-top: 5%;">在这里添加简介....</p>
             </figcaption>
           </figure></a></div>
-              <% 
+          <% 
       	String  user="root";    
           Connection  conn=null;
           	String  password="123456";       //密码为自己数据库的密码   
@@ -103,7 +103,7 @@
              //String  url="jdbc:mysql:"+ "//127.0.0.1:3306/bin_db+?user="+user+"&password="+password;
            conn= DriverManager.getConnection(url,user,password);
           Statement statement;
-          try {
+                try {
               statement = conn.createStatement();
               //需要执行的数据库操作语句
               String sql = "select * from activity_detail_blog";
@@ -118,6 +118,7 @@
               String description=null;
               String writer = null;
               String Image=null;
+              int mark;
               while(rs.next())
               {
                   name = rs.getString("pagename");
@@ -125,16 +126,20 @@
                   content=rs.getString("page");
                   important_word=rs.getString("important_word");
                   description = rs.getString("description");
-                  writer = rs.getString("builder");%>
-                  <div class="card new_card" ><a href="about/about3.jsp">
-          <figure class="pp-effect"><img class="img-fluid" src='<%=Image %>'alt="Food"/>
+                  writer = rs.getString("builder");
+                  mark =rs.getInt("mark");
+                 %>
+                  <div class="card new_card" ><a href="blog/blog4.jsp?name=<%=name%>">
+          <figure class="pp-effect"><img  type="submit" class="img-fluid" src='<%=Image %>'alt="Food"/>
             <figcaption >
-              <div ><%=name %></div>
-              <p style="width: 90%;padding-left: 20%; padding-top: 5%;"><%=description+writer %></p>
+              <div ><%=mark+","+name %></div>
+              <p style="width: 90%;padding-left: 20%; padding-top: 5%;"><%=description%><br><%=writer %></p>
             </figcaption>
           </figure></a></div>
+       
                  <% 
               }
+            
               rs.close();
           } catch (SQLException e) {
               // TODO Auto-generated catch block

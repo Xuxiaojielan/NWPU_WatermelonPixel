@@ -25,6 +25,8 @@
        String description=request.getParameter("description");
        String writer = request.getParameter("writer");
        String Image="images/"+image;
+       String ma=request.getParameter("mark");
+       int mark = Integer.parseInt(ma);
         try {
 			
 			
@@ -37,13 +39,13 @@
 
 			Statement sql=conn.createStatement();
 			if(category.equals("1")){
-			String sql_insert="insert into activity_detail_about values("+"'"+name+"'"+","+"'"+Image+"'"+","+"'"+content+"'"+","+"'"+important_word+"'"+","+"'"+description+"'"+","+"'"+writer+"'"+")";
+			String sql_insert="insert into activity_detail_about values("+"'"+name+"'"+","+"'"+Image+"'"+","+"'"+content+"'"+","+"'"+important_word+"'"+","+"'"+description+"'"+","+"'"+writer+"'"+","+"'"+mark+"'"+")";
 			System.out.print(sql_insert);
 			sql.execute(sql_insert);
 			
 			}
 			if(category.equals("2")){
-				String sql_insert="insert into activity_detail_blog values("+"'"+name+"'"+","+"'"+Image+"'"+","+"'"+content+"'"+","+"'"+important_word+"'"+","+"'"+description+"'"+","+"'"+writer+"'"+")";
+				String sql_insert="insert into activity_detail_blog values("+"'"+name+"'"+","+"'"+Image+"'"+","+"'"+content+"'"+","+"'"+important_word+"'"+","+"'"+description+"'"+","+"'"+writer+"'"+","+"'"+mark+"'"+")";
 				System.out.print(sql_insert);
 				sql.execute(sql_insert);
 				

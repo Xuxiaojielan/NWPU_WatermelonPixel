@@ -68,6 +68,12 @@ border:0.1px solid #CCCCCC;
 						<div class="layui-tab-content">
 						  <div class="layui-tab-item"></div>
 							<div class="layui-tab-item layui-show">
+							<div class="layui-form-item">
+								  <label class="layui-form-label">教程号：</label>
+								  <div class="layui-input-block">
+										<input type="text" name="mark" required lay-verify="required" placeholder="请输入教程号" autocomplete="off" class="layui-input">
+									</div>
+								</div>
 								<div class="layui-form-item">
 								  <label class="layui-form-label">教程名称：</label>
 								  <div class="layui-input-block">
